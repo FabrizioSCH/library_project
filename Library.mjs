@@ -6,16 +6,16 @@
 
 class Library{
   
-    #libName;
-    #libAddress;
-    #libRoom;
-    #libTable;
+    #local;
+    #address;
+    #rooms;
+    #tables;
 
     constructor(name, address, rooms, tables){
-        this.#libName;
-        this.#libAddress;
-        this.#libRoom;
-        this.#libTable;
+        this.#local;
+        this.#address;
+        this.#rooms;
+        this.#tables;
     }
   
     sell(){};
