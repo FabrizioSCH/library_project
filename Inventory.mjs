@@ -6,18 +6,18 @@
 
 class Inventory{
   
-    #invBid;
-    #invBs;
-    #invRow;
-    #invSto;
-    #invSiz;
+    #id;
+    #seller;
+    #row;
+    #stock;
+    #size;
   
     constructor(bookId, bookSeller, row, stock, size){
-        this.#invBid;
-        this.#invBs;
-        this.#invRow;
-        this.#invSto;
-        this.#invSiz;
+        this.#id;
+        this.#seller;
+        this.#row;
+        this.#stock;
+        this.#size;
     }
   
     store(){};
