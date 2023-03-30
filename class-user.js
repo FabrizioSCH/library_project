@@ -1,4 +1,4 @@
-import { listBooks } from './books.js'
+import { listBooks } from './books-database.js'
 
 class User {
   #properties = ['id', 'name']
@@ -6,21 +6,26 @@ class User {
   constructor(id) {
     this.books = [];
 
-    if(id) this.load(id);
-  }
-
-getBooks(books) {
-    if(books.stock > 0) {
-      return
-    } else {
-      if (this.books > 2) {
-        return
-      } else {
-        this,books.push(books);
-        //el cliente puede tener el libro
-      }
+    if(id) {
+      this.load(id);
     }
   }
+
+  getBooks(books) {
+    const book = listBooks.find((book) => book.id === books);
+    if(!book) {
+      return 'Libro no encontrado';
+    } else if (book.stock === 0) {
+      return 'Libro no disponible';
+    } else if (this.books.length >= 2) {
+      return 'No puede pedir más libros';
+    } else {
+      book.stock--;
+      this.books.push(book);
+      return 'Libro tomado prestado exitosamente';
+    }
+  }
+      
 
 
 
@@ -35,14 +40,19 @@ getBooks(books) {
        this[item] = data[item];
       }
     });
-      
   }
-    
 }
 
 
+const user = new User();
 
+user.set({id: 95937551, name: 'Julio Rodriguez'});
 
-const gabriel = new User();
+console.log(user.getBooks(2));
+console.log(user.getBooks(2)); // corregir que no pueda tomar un libro repetido
+console.log(user);
 
-gabriel.getBook(listBooks.name[2]);
+const userOne = new User();
+
+userOne.set({id: 43424784, name: 'Fabrizio Schwindt'});
+console.log(userOne);
