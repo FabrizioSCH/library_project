@@ -9,12 +9,19 @@ class User {
     if(id) this.load(id);
   }
 
-  getBook(books){
-    if(books.stock > 0){
-      this.books.push(books.name);
-
+getBooks(books) {
+    if(books.stock > 0) {
+      return
+    } else {
+      if (this.books > 2) {
+        return
+      } else {
+        this,books.push(books);
+        //el cliente puede tener el libro
+      }
     }
-  };
+  }
+}
 
 
   load(id) {
@@ -34,12 +41,8 @@ class User {
 }
 
 
-const user = new User();
 
-user.set({id: 95937551, name: 'Julio Rodriguez'});
-console.log(user);
 
-const userOne = new User();
+const gabriel = new User();
 
-userOne.set({id: 43424784, name: 'Fabrizio Schwindt'});
-console.log(userOne);
+gabriel.getBook(listBooks.name[2]);
