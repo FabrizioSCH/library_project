@@ -21,7 +21,7 @@ getBooks(books) {
       }
     }
   }
-}
+
 
 
   load(id) {
