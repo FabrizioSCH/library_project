@@ -1,4 +1,4 @@
-import { listBooks } from './books-database.js'
+import { listBooks } from './books.js'
 
 class User {
   #properties = ['id', 'name']
