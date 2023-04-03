@@ -25,13 +25,6 @@ class User {
       return 'Libro tomado prestado exitosamente';
     }
   }
-      
-
-
-
-  load(id) {
-
-  }
 
   set(data) {
     const keys = Object.keys(data);
