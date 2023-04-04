@@ -19,6 +19,8 @@ class User {
       return 'Libro no disponible';
     } else if (this.books.length >= 2) {
       return 'No puede pedir más libros';
+    } else if (this.books.find((b) => b.id === books)) {
+      return 'Ya tienes este libro prestado';
     } else {
       book.stock--;
       this.books.push(book);
@@ -36,16 +38,18 @@ class User {
   }
 }
 
-
 const user = new User();
 
 user.set({id: 95937551, name: 'Julio Rodriguez'});
 
-console.log(user.getBooks(2));
-console.log(user.getBooks(2)); // corregir que no pueda tomar un libro repetido
+console.log(user.getBooks(1));
+console.log(user.getBooks(2)); 
 console.log(user);
 
 const userOne = new User();
 
 userOne.set({id: 43424784, name: 'Fabrizio Schwindt'});
+
+console.log(userOne.getBooks(4));
+console.log(userOne.getBooks(4));
 console.log(userOne);
